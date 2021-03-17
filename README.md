@@ -12,6 +12,10 @@
 [vscode]: https://code.visualstudio.com/
 [install vscode]: https://code.visualstudio.com/docs/setup/setup-overview
 [vscode remote container]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+[Promtail]: https://grafana.com/docs/loki/latest/clients/promtail/
+[Loki]: https://grafana.com/oss/loki/
+[Grafana]: https://grafana.com/grafana/
+[Prometheus]: https://prometheus.io/
 
 ---
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](meta/CODE_OF_CONDUCT.md)
@@ -35,6 +39,17 @@ This is a project to provide a project template including features as below:
   - integration test/deployment test
   - load test 
     - [locust][locust]
+- k8s observability
+  - monitoring/metrics
+    - [Prometheus][Prometheus]
+  - alert to email/slack
+    - [Prometheus][Prometheus]
+  - logging
+    - PGL stack: Promtail + Loki + Grafana
+      - [Promtail][Promtail]: log collecting sidecar
+      - [Loki][Loki]: log storage & query
+      - [Grafana][Grafana]: UI
+  - [TODO] tracing
 - document templates with [VuePress][VuePress]/[dev-docs-template][dev-docs-template]
 
 ## Prerequisite
