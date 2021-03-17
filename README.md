@@ -52,6 +52,10 @@ This is a project to provide a project template including features as below:
   - [TODO] tracing
 - document templates with [VuePress][VuePress]/[dev-docs-template][dev-docs-template]
 
+## Documentation
+
+The documentation of the project is located on the [website]() or in the `docs/` directory.
+
 ## Prerequisite
 
 - The environment for build needs to be linux/amd64 or macos/amd64

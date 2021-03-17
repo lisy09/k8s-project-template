@@ -1,0 +1,6 @@
+{
+    "plantuml.render": "PlantUMLServer",
+    "plantuml.server": "http://plantuml-server:8080",
+    "plantuml.exportOutDir": ".",
+    "plantuml.exportSubFolder": false
+}
