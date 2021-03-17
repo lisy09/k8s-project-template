@@ -6,6 +6,12 @@
 [jacoco]: https://www.eclemma.org/jacoco/
 [sbt-jacoco]: https://www.scala-sbt.org/sbt-jacoco/
 [kind]: https://kind.sigs.k8s.io/
+[locust]: https://locust.io/
+[dev-docs-template]: https://github.com/lisy09/dev-docs-template
+[VuePress]: https://vuepress.vuejs.org/
+[vscode]: https://code.visualstudio.com/
+[install vscode]: https://code.visualstudio.com/docs/setup/setup-overview
+[vscode remote container]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
 ---
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](meta/CODE_OF_CONDUCT.md)
@@ -27,14 +33,22 @@ This is a project to provide a project template including features as below:
   - unit test
   - e2e test
   - integration test/deployment test
+  - load test 
+    - [locust][locust]
+- document templates with [VuePress][VuePress]/[dev-docs-template][dev-docs-template]
 
-# Prerequisite
+## Prerequisite
 
 - The environment for build needs to be linux/amd64 or macos/amd64
 - The environemnt for build needs [docker engine installed](https://docs.docker.com/engine/install/)
 - have [docker-compose](https://docs.docker.com/compose/install/) installed
 - The environemnt for build needs GNU `make` > 3.8 installed
 - The environemnt for build needs `bash` shell
+
+[optional]
+- for unified IDE support without installing any programming language tools in the local environment, need 
+  - [Visual Studio Code][vscode] to be [installed][install vscode]
+  - [Visual Studio Code Extension: Remote - Containers][vscode remote container] to be installed
 
 ## License
 Check the [LICENSE](LICENSE.md) file for license rights and limitations.
