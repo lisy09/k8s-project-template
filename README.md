@@ -56,6 +56,8 @@ This is a project to provide a project template including features as below:
 
 The documentation of the project is located on the [website]() or in the `docs/` directory.
 
+To check the src markdown of docs, please check `./dev-docs/docs_src`
+
 ## Prerequisite
 
 - The environment for build needs to be linux/amd64 or macos/amd64
@@ -82,27 +84,32 @@ Please check [CONTRIBUTING.md](meta/CONTRIBUTING.md).
 - `local-k8s-cluster`: module to create a local k8s cluster using [kind][kind], which is using Docker container "nodes".
 - `cicd`: ci/cd construction on k8s
 - `gitops`: source for gitops. Please notice that in production practice, please seperate this module to another repository, to handle the deployment permission control separately.
+- `dev-docs`: module to edit the docs
+- `docs`: generated static html docs from `dev-docs`
 - `scripts/`: scripts for building/running
 - `Makefile`: GNU Make Makefile as quick command entrypoint
 
+## Local Port Binding for Docker-Compose based Development
+
+Please maintain the local port binding list here for docker/docker-compose based development, to `avoid port conflict for multiple modules` 
+
+- 8080: dev-docs dev preview (with vscode remote container)
+- 8081: dev-docs dev preview (run docker container locally)
+
 ## How to Use
 
+### Preview thd dev-docs locally
 
-### Build command
-
-To build all docker images locally:
 ```bash
-make all
+make docs-preview
 ```
 
-To push built docker images to the remote registry:
+Then open `http://localhost:8081` in browser.
+
+### Build docs
+
 ```bash
-make push
+make docs
 ```
 
-To delete built local docker images:
-```bash
-make clean
-```
-
-Or you can check `./Makefile` for more details.
+`docs/` will be updated.

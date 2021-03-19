@@ -6,10 +6,9 @@ services:
     volumes: 
       - ..:/workspace:cached
       - ../${DOCS_RELATIVE_PATH}:/${WOKRKING_PACKAGE_PATH}/${DOCS_RELATIVE_PATH}:cached
-      - ../${EXAMPLES_RELATIVE_PATH}:/${WOKRKING_PACKAGE_PATH}/${EXAMPLES_RELATIVE_PATH}:cached
     ports:
       - ${VUEPRESS_DEV_PORT}:8080
     command: /bin/sh -c "while sleep 1000; do :; done"
   plantuml-server:
-    image: plantuml/plantuml-server:jetty
+    image: ${PLANTUML_SERVER_IMAGE}
     container_name: plantuml-server

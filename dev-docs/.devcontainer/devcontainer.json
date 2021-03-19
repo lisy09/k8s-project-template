@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.154.0/containers/python-3
 {
 	"name": "dev-docs",
-	"shutdownAction": "stopContainer",
+	"shutdownAction": "stopCompose",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "dev-docs",
 	"runArgs": [

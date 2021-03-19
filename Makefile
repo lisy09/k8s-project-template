@@ -5,25 +5,22 @@ SCRIPTS_DIR = ${ROOT_DIR}/scripts
 all: incremental-tasks alway-run-tasks
 
 .PHONY: incremental-tasks
-incremental-tasks: docker-images
+incremental-tasks: 
 
 .PHONY: alway-run-tasks  
 alway-run-tasks: 
 
-.PHONY: docker-images
-docker-images: base
 
-.PHONY: base
-base:
-	$(SCRIPTS_DIR)/build_base.sh
+DEV_DOCS_DIR=${ROOT_DIR}/dev-docs
 
-.PHONY: push
-push:
-	$(SCRIPTS_DIR)/push_docker_images.sh
+.PHONY: docs-preview
+docs-preview:
+	cd ${DEV_DOCS_DIR} && make preview
 
-.PHONY: clear
-clear: delete-docker-images
+.PHONY: docs
+docs:
+	cd ${DEV_DOCS_DIR} && make build
 
-.PHONY: delete-docker-images
-delete-docker-images:
-	$(SCRIPTS_DIR)/delete_local_images.sh
+
+
+CICD_DIR=${ROOT_DIR}/cicd
