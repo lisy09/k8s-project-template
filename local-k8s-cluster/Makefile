@@ -1,52 +1,61 @@
-ifneq (,$(wildcard ./.env))
-    include .env
-    export
-endif
-
-SCRIPT_DIR = ${PWD}/scripts
+ROOT_DIR=${PWD}
+SCRIPTS_DIR = ${ROOT_DIR}/scripts
 
 # build
 
-.PHONY: nfs-docker
-nfs-docker:
-	bash ${SCRIPT_DIR}/build_nfs_docker.sh
-	
+.PHONY: all
+all: incremental-tasks alway-run-tasks
+
+.PHONY: incremental-tasks
+incremental-tasks: docker-images push
+
+.PHONY: alway-run-tasks  
+alway-run-tasks:
+
+.PHONY: docker-images
+docker-images: nfs-docker
+
 .PHONY: clean
 clean: delete-docker-images
 
 .PHONY: delete-docker-images
 delete-docker-images:
-	bash $(SCRIPT_DIR)/delete_local_images.sh 
+	$(SCRIPTS_DIR)/delete_local_images.sh 
+
+.PHONY: nfs-docker
+nfs-docker:
+	${SCRIPTS_DIR}/build_nfs_docker.sh
 
 .PHONY: push
 push:
-	bash $(SCRIPT_DIR)/push_docker_images.sh 
+	$(SCRIPTS_DIR)/push_docker_images.sh 
 
 # deploy
 .PHONY: deploy-nfs
 deploy-nfs:
-	bash ${SCRIPT_DIR}/deploy_nfs.sh
+	${SCRIPTS_DIR}/deploy_nfs.sh
 .PHONY: undeploy-nfs
 undeploy-nfs:
-	bash ${SCRIPT_DIR}/undeploy_nfs.sh
+	${SCRIPTS_DIR}/undeploy_nfs.sh
 
-.PHONY: create
-create: deploy-nfs
-	bash ${SCRIPT_DIR}/create_cluster.sh
+.PHONY: deploy-k8s
+deploy-k8s:
+	${SCRIPTS_DIR}/create_cluster.sh
 
-.PHONY: delete
-delete:
-	bash ${SCRIPT_DIR}/delete_cluster.sh
-	make undeploy-nfs
+.PHONY: undeploy-k8s
+undeploy-k8s:
+	${SCRIPTS_DIR}/delete_cluster.sh
 
-.PHONY: kubectl
-kubectl:
-	bash ${SCRIPT_DIR}/run_kubectl.sh
+.PHONY: deploy
+deploy: deploy-k8s deploy-nfs
+
+.PHONY: undeploy
+undeploy: undeploy-k8s undeploy-nfs
 
 # deploy
 .PHONY: deploy-dns
 deploy-dns:
-	bash ${SCRIPT_DIR}/deploy_docker_dnsmasq.sh
+	${SCRIPTS_DIR}/deploy_docker_dnsmasq.sh
 .PHONY: undeploy-nfs
 undeploy-dns:
-	bash ${SCRIPT_DIR}/undeploy_docker_dnsmasq.sh
+	${SCRIPTS_DIR}/undeploy_docker_dnsmasq.sh

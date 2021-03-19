@@ -96,6 +96,9 @@ Please maintain the local port binding list here for docker/docker-compose based
 
 - 8080: dev-docs dev preview (with vscode remote container)
 - 8081: dev-docs dev preview (run docker container locally)
+- 53: dns proxy by dnsmasq
+- 5380: http manage page for dnsmasq
+- 2049: port for nfs server
 
 ## How to Use
 

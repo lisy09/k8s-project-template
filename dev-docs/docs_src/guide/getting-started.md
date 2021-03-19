@@ -34,13 +34,13 @@ make all
 ### 3. Start a local k8s cluster with kind
 
 ```bash
-make local-cluster
+make local-k8s
 ```
 
 (Optional) remove local cluster finally
 
 ```bash
-make local-cluster-undeploy
+make local-k8s-undeploy
 ```
 
 ### 4. Deploy k8s workload

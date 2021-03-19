@@ -2,6 +2,7 @@
 
 PARENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ROOT_DIR="$( cd $PARENT_DIR/.. >/dev/null 2>&1 && pwd )"
+source $ROOT_DIR/.env
 
 set -e
 
@@ -16,5 +17,4 @@ done
 
 set -x
 
-docker stop dnsmasq
-docker rm dnsmasq
+docker stop ${DNSMASQ_CONTAINER_NAME}

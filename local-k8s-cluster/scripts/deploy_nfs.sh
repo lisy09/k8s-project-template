@@ -2,7 +2,9 @@
 
 PARENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ROOT_DIR="$( cd $PARENT_DIR/.. >/dev/null 2>&1 && pwd )"
+MANIFEST_DIR=$ROOT_DIR/manifest
 
+source $ROOT_DIR/.env
 set -e
 
 COMMANDS=docker
@@ -26,3 +28,11 @@ docker run -d --rm \
     -e SHARED_DIRECTORY=/nfs/data \
     -p ${NFS_SERVER_PORT}:2049 \
     ${NFS_IMAGE_FULL}
+
+# setup nfs storage class
+mkdir -p ${ROOT_DIR}/${NFS_DATA_DIR}/k8s_nfs
+kubectl apply -f ${MANIFEST_DIR}/nfs.yaml
+kubectl wait --namespace default \
+    --for=condition=ready pod \
+    --selector=app=nfs-client-provisioner \
+    --timeout=90s

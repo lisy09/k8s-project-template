@@ -43,6 +43,7 @@ module.exports = {
                             collapsable: false,
                             children: [
                                 'dev-docs',
+                                'local-k8s-cluster',
                                 'cicd-basic'
                             ]
                         }
