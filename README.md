@@ -25,6 +25,7 @@
 Origin: https://github.com/lisy09/k8s-project-template
 
 This is a project to provide a project template including features as below:
+- k8s cluster in docker for local or CI/CD machine with [kind][kind]
 - ci/cd with [Jenkins X][Jenkins X]
 - chatops with [Jenkins X (lighthouse)][lighthouse]
 - gitops with [Jenkins X][Jenkins X]
@@ -97,6 +98,12 @@ Please maintain the local port binding list here for docker/docker-compose based
 - 8081: dev-docs dev preview (run docker container locally)
 
 ## How to Use
+
+### Build all necessary artifacts before running other commands
+
+```bash
+make all
+```
 
 ### Preview thd dev-docs locally
 

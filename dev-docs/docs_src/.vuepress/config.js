@@ -9,12 +9,12 @@ module.exports = {
     locales: {
         '/': {
             lang: 'en-US',
-            title: 'dev-docs-template',
+            title: 'k8s-project-template',
             // description: ''
         },
         '/zh/': {
             lang: 'zh-CN',
-            title: 'dev-docs-template',
+            title: 'k8s-project-template',
         }
     },
     themeConfig: {
@@ -26,7 +26,7 @@ module.exports = {
                 nav: [
                     { text: 'Home', link: '/' },
                     { text: 'Guide', link: '/guide/index.html' },
-                    { text: 'GitHub', link: 'https://github.com/lisy09/dev-docs-template' },
+                    { text: 'GitHub', link: 'https://github.com/lisy09/k8s-project-template' },
                 ],
                 sidebar: {
                     '/guide/': [ 
@@ -35,16 +35,15 @@ module.exports = {
                             collapsable: false,
                             children: [
                                 '',
-                                'getting-started',
-                                'edit-docs',
-                                'build-sites'
+                                'getting-started'
                             ]
                         },
                         {
                             title: 'Advance',
                             collapsable: false,
                             children: [
-                                'templates'
+                                'dev-docs',
+                                'cicd-basic'
                             ]
                         }
                     ]
