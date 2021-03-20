@@ -16,6 +16,7 @@ footer: Apache-2.0 Licensed | Copyright © 2021-present lisy09.thu@gmail.com
 tags:
   - k8s-project-template
 ---
+[Argo]: https://argoproj.github.io/
 [Jenkins X]: https://jenkins-x.io/
 [lighthouse]: https://github.com/jenkins-x/lighthouse
 [sonarqube]: https://github.com/SonarSource/sonarqube
@@ -45,10 +46,10 @@ This is a project to provide a k8s project template with built-in engineering ex
 ## Features
 
 This project provides these features:
+- document templates with [VuePress][VuePress]/[dev-docs-template][dev-docs-template]
 - k8s cluster in docker for local or CI/CD machine with [kind][kind]
-- ci/cd with [Jenkins X][Jenkins X]
+- ci/cd, gitops with [Argo][Argo]
 - chatops with [Jenkins X (lighthouse)][lighthouse]
-- gitops with [Jenkins X][Jenkins X]
 - source code scan with [sonarqube][sonarqube]
 - code coverage:
   - python: [coverage.py][coverage.py]
@@ -71,7 +72,6 @@ This project provides these features:
       - [Loki][Loki]: log storage & query
       - [Grafana][Grafana]: UI
   - [TODO] tracing
-- document templates with [VuePress][VuePress]/[dev-docs-template][dev-docs-template]
 
 ## Easy to Start
 

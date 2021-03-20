@@ -1,3 +1,5 @@
+
+[Argo]: https://argoproj.github.io/
 [Jenkins X]: https://jenkins-x.io/
 [lighthouse]: https://github.com/jenkins-x/lighthouse
 [sonarqube]: https://github.com/SonarSource/sonarqube
@@ -24,11 +26,11 @@
 
 Origin: https://github.com/lisy09/k8s-project-template
 
-This is a project to provide a project template including features as below:
+This project provides these features:
+- document templates with [VuePress][VuePress]/[dev-docs-template][dev-docs-template]
 - k8s cluster in docker for local or CI/CD machine with [kind][kind]
-- ci/cd with [Jenkins X][Jenkins X]
+- ci/cd, gitops with [Argo][Argo]
 - chatops with [Jenkins X (lighthouse)][lighthouse]
-- gitops with [Jenkins X][Jenkins X]
 - source code scan with [sonarqube][sonarqube]
 - code coverage:
   - python: [coverage.py][coverage.py]
@@ -51,7 +53,6 @@ This is a project to provide a project template including features as below:
       - [Loki][Loki]: log storage & query
       - [Grafana][Grafana]: UI
   - [TODO] tracing
-- document templates with [VuePress][VuePress]/[dev-docs-template][dev-docs-template]
 
 ## Documentation
 
