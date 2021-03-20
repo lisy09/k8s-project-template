@@ -46,6 +46,6 @@ Modify the part below in `./local-k8s-cluster/manifest/kind-config.yaml`.
 
 Change the number of `role: control-plane` & `role: worker`.
 
-### More customize of local cluster
+### More customization of local cluster
 
 Please check [kind official document](https://kind.sigs.k8s.io/docs/user/configuration/).

@@ -52,3 +52,36 @@ make deploy
 ### 5. Check the monitoring dash board 
 
 Open the browser with [http://monitoring.observe.local](http://monitoring.observe.local)
+
+## Other Quick Entrypoints
+
+### Docs
+
+Preview the html docs:
+
+```bash
+make docs-preview
+```
+
+Then open [http://localhost:8081](http://localhost:8081).
+
+
+You can build the `./docs/` from `./dev-docs/docs_src` using:
+
+```bash
+make docs
+```
+
+### Local K8S Cluster
+
+Deploy local k8s cluster using `kind`:
+
+```bash
+make local-k8s
+```
+
+Undeploy:
+
+```bash
+make local-k8s-undeploy
+```

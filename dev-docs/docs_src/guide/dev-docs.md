@@ -37,7 +37,7 @@ The whole directory will be mounted to `/workspace`.
 Run this command in the remote container.
 
 ```bash
-make dev-local
+make preview-local
 ```
 
 Then a VuePress dev server will be started and listened at `$VUEPRESS_DEV_PORT` port value defined in `./.env`, default `8080`).
