@@ -1,0 +1,12 @@
+generatorOptions:
+  # disableNameSuffixHash: true
+  labels:
+    type: generated
+  annotations:
+    note: generated
+
+configMapGenerator:
+- name: locustfiles
+  options:
+    labels:
+      app: "locust"

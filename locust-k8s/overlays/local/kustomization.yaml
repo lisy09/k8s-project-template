@@ -1,0 +1,10 @@
+namespace: locust-local
+bases:
+  - ../../base
+
+resources:
+  - namespace.yaml
+  - ingress.yaml
+
+patches:
+  - patches.yaml

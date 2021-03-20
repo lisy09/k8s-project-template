@@ -1,0 +1,22 @@
+  # disableNameSuffixHash: true
+generatorOptions:
+  annotations:
+    note: generated
+  labels:
+    type: generated
+configMapGenerator:
+- files:
+  - configmap-from-files/locustfiles/config.yaml
+  - configmap-from-files/locustfiles/main.py
+  name: locustfiles
+  options:
+    annotations:
+      note: generated
+    labels:
+      app: locust
+      type: generated
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- statefulset/locust.yaml
+- service/locust.yaml

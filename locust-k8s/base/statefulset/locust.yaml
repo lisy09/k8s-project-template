@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: locust-master
+spec:
+  selector:
+    matchLabels:
+      app: locust-master
+  serviceName: locust-master
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: locust-master
+    spec:
+      containers:
+      - name: locust-master
+        image: lisy09/locust:1.0-locust-1.4.3
+        env:
+          - name: LOCUST_WEB_PORT
+            value: "8089"
+        ports:
+        - containerPort: 8089
+          name: web
+        - containerPort: 5557
+          name: master-bind
+        args:
+          - -f 
+          - /mnt/locustfiles/main.py
+          - --master
+          - --master-bind-port=5557
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+        volumeMounts:
+        - name: locustfiles
+          mountPath: /mnt/locustfiles
+      volumes:
+      - name: locustfiles
+        configMap:
+          name: locustfiles
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: locust-worker
+spec:
+  selector:
+    matchLabels:
+      app: locust-worker
+  serviceName: locust-worker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: locust-worker
+    spec:
+      containers:
+      - name: locust-worker
+        image: lisy09/locust:1.0-locust-1.4.3
+        args:
+          - -f 
+          - /mnt/locustfiles/main.py
+          - --worker
+          - --master-host=locust-master
+          - --master-port=5557
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+        volumeMounts:
+        - name: locustfiles
+          mountPath: /mnt/locustfiles
+      volumes:
+      - name: locustfiles
+        configMap:
+          name: locustfiles
