@@ -1,9 +1,8 @@
----
----
-[kind]: https://kind.sigs.k8s.io/
----
 
 # Local K8S Cluster
+
+[kind]: https://kind.sigs.k8s.io/
+
 
 This document explains basic about `./local-k8s-cluster`.
 
