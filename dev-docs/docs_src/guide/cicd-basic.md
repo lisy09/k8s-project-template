@@ -70,3 +70,6 @@ To delete this workflow, simply
 kubectl --namespace cicd delete workflow hello-world-xxx
 ```
 
+## Argo Workflows Catalog
+
+For more reusable `Argo Workflow Template`, please check [Argo Workflows Catalog](https://argoproj-labs.github.io/argo-workflows-catalog/).
