@@ -99,3 +99,14 @@ Undeploy:
 ```bash
 make cicd-undeploy
 ```
+
+After deploy, you can check `Argo Server` Web UI.
+
+For local k8s cluster, check it from [http://argo.cicd.localhost](http://argo.cicd.localhost).
+
+:::warning
+If you are deploying the cicd in local k8s cluster, you will need to be able to resolve DNS for *.localhost.
+You can check `./local-k8s-cluster/scripts/override_dns.sh` as a tip.
+
+As current testing, `Argo Server` Web UI may not support Microsoft Edge yet.
+:::

@@ -8,3 +8,8 @@ spec:
       containers:
         - name: workflow-controller
           image: argoproj/workflow-controller:v3.0.0-rc8
+          args:
+            - --configmap
+            - workflow-controller-configmap
+            - --executor-image
+            - argoproj/argoexec:v3.0.0-rc8
