@@ -49,3 +49,24 @@ After deploy, you can check `Argo Server` Web UI from [http://argo.cicd.localhos
 :::warning
 As current testing, `Argo Server` Web UI may not support Microsoft Edge yet.
 :::
+
+### Deploy a Hello-World Workflow
+
+```bash
+kubectl --namespace cicd create -f ./cicd/manefest/argo-workflow-test.yaml
+```
+
+Then an Argo `Workflow` Resource with the name `hello-world-xxx` will be deploy, bringing up a pod with the same name.
+
+```bash
+kubectl --namespace cicd logs hello-world-xxx -c main
+```
+
+This command will show the execution result in the log.
+
+To delete this workflow, simply
+
+```bash
+kubectl --namespace cicd delete workflow hello-world-xxx
+```
+
