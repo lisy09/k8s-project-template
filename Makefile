@@ -35,3 +35,13 @@ local-k8s:
 .PHONY: local-k8s-undeploy
 local-k8s-undeploy:
 	cd ${LOCAL_K8S_DIR} && make undeploy
+
+# ci/cd
+
+.PHONY: cicd
+cicd:
+	cd ${CICD_DIR} && make deploy
+
+.PHONY: cicd-undeploy
+cicd-undeploy:
+	cd ${CICD_DIR} && make undeploy

@@ -1,0 +1,4 @@
+namespace: cicd
+resources:
+  - ./namespace.yaml
+  - ./argo-workflows/namespace-install

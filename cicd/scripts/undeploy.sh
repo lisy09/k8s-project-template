@@ -16,4 +16,4 @@ done
 set -e
 set -x
 
-kustomize build $ROOT_DIR/argo-workflows/namespace-install | kubectl apply -f -
+kustomize build $ROOT_DIR/kustomize | kubectl delete -f -

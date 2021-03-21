@@ -16,4 +16,4 @@ done
 set -e
 set -x
 
-kubectl delete -f $ROOT_DIR/namespace.yaml
+kustomize build $ROOT_DIR/kustomize | kubectl apply -f -

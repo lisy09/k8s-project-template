@@ -85,3 +85,17 @@ Undeploy:
 ```bash
 make local-k8s-undeploy
 ```
+
+### CI/CD
+
+Deploy CI/CD backend in `cicd` namespace of current k8s cluster:
+
+```bash
+make cicd
+```
+
+Undeploy:
+
+```bash
+make cicd-undeploy
+```
