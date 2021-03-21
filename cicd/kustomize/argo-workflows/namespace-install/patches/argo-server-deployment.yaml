@@ -11,8 +11,10 @@ spec:
           args:
             - server
             - --namespaced
-            # - --secure=false
-            # - --basehref=/argo/
-          # readinessProbe:
-          #   httpGet:
-          #     scheme: HTTP
+            - --secure=false
+          readinessProbe:
+            httpGet:
+              scheme: HTTP
+          # env:
+          #   - name: BASE_HREF
+          #     value: /argo/
