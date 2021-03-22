@@ -46,6 +46,8 @@ make undeploy
 
 After deploy, you can check `Argo Server` Web UI from [http://argo.cicd.localhost](http://argo.cicd.localhost) or the host you specify.
 
+You can check `MinIO` Web UI from [http://minio.cicd.localhost](http://minio.cicd.localhost) or the host you specify.
+
 :::warning
 As current testing, `Argo Server` Web UI may not support Microsoft Edge yet.
 :::
@@ -73,3 +75,14 @@ kubectl --namespace cicd delete workflow hello-world-xxx
 ## Argo Workflows Catalog
 
 For more reusable `Argo Workflow Template`, please check [Argo Workflows Catalog](https://argoproj-labs.github.io/argo-workflows-catalog/).
+
+## Advance Configuration
+
+### Artifact Repository Using Minio
+
+In the default deploy using local k8s cluster, MinIO is setuped with 1 instance.
+
+In production, you may want to setup HA for MinIO.
+
+Check `./cicd/kustomize/minio/production/kustomization.yaml` for HA MinIO cluster.
+(Simply modify resources field in `./cicd/kustomize/kustomization`, change the children `- ./minio/local` to `- ./minio/production`)

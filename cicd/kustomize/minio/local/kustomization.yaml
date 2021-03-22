@@ -1,0 +1,16 @@
+namespace: cicd
+
+bases:
+  - ../base
+
+resources:
+  - ingress.yaml
+
+patches:
+  - patches.yaml
+
+secretGenerator:
+  - name: minio
+    literals:
+      - accesskey=default_user
+      - secretkey=cc29f0bf92d9b34876b894ddab677f4d

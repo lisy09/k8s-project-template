@@ -18,10 +18,3 @@ spec:
           # env:
           #   - name: BASE_HREF
           #     value: /argo/
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: workflow-controller-configmap
-data:
-  containerRuntimeExecutor: k8sapi

@@ -1,0 +1,3 @@
+resources:
+- minio-service.yaml
+- minio-statefulset.yaml

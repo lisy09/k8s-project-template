@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: workflow-controller-configmap
+data:
+  containerRuntimeExecutor: k8sapi
+  test: $(MINIO_SECRET_NAME)
+  artifactRepository: |
+    archiveLogs: true
+    s3:
+      endpoint: minio-svc.cicd.svc.cluster.local
+      bucket: cicd-artifact
+      insecure: true
+      accessKeySecret:
+        name: $(MINIO_SECRET_NAME)
+        key: accesskey
+      secretKeySecret:
+        name: $(MINIO_SECRET_NAME)
+        key: secretkey

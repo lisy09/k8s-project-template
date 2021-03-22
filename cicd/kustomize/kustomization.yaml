@@ -1,4 +1,17 @@
 namespace: cicd
 resources:
   - ./namespace.yaml
-  - ./argo-workflows/namespace-install
+  - ./argo-workflows/local
+  - ./minio/local
+
+patches:
+  - ./patches/workflow-controller-configmap.yaml
+
+configurations:
+  - varReference.yaml
+vars:
+  - name: MINIO_SECRET_NAME
+    objref:
+      name: minio
+      kind: Secret
+      apiVersion: v1
