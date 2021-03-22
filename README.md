@@ -56,7 +56,7 @@ This project provides these features:
 
 ## Documentation
 
-The documentation of the project is located on the [website]() or in the `docs/` directory.
+The documentation of the project is located on [Github Pages](https://lisy09.github.io/k8s-project-template/) or in the `docs/` directory.
 
 To check the src markdown of docs, please check `./dev-docs/docs_src`
 
