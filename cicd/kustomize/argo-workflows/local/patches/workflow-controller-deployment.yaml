@@ -9,6 +9,7 @@ spec:
         - name: workflow-controller
           image: argoproj/workflow-controller:v3.0.0-rc8
           args:
+            - --namespaced
             - --configmap
             - workflow-controller-configmap
             - --executor-image

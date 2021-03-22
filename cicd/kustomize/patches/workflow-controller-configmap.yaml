@@ -4,7 +4,6 @@ metadata:
   name: workflow-controller-configmap
 data:
   containerRuntimeExecutor: k8sapi
-  test: $(MINIO_SECRET_NAME)
   artifactRepository: |
     archiveLogs: true
     s3:
