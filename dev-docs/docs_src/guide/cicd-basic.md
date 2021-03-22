@@ -14,26 +14,12 @@ This module is the main implementation of `CI/CD on k8s`.
 The built-in CI/CD utilize these projects:
 
 - [Argo Workflows]: Construct CI/CD pipelines/workflows
-- [Argo CD]: Provide CD Implementation. Detect change of git repository and deploy.
+- [Argo CD]: Provide CD + gitops implementation. Detect change of git repository and deploy.
 - [Argo Events]: Listen to various events and trigger various actions including `Argo Workflows`.
 - [TODO]: chatops implementation
 - [MinIO]: Provide artifact repostiory capability for CI/CD.
 
-## How to Use?
-
-### Modify the Configuration
-
-First, specify a host like `argo.cicd.localhost` for the web server of `Argow Workflows`.
-
-Modify it through modify `/spec/rules/0/host` in `./cicd/kustomize/argo-workflows/namespace-install/ingress.yaml`.
-
-If you are deploying the cicd in local k8s cluster, you will need to be able to resolve DNS for *.localhost.
-You can check `./local-k8s-cluster/scripts/override_dns.sh` as a tip.
-
-Also specify `namespace` in `./cicd/kustomize/kustomization.yaml` and `./cicd/kustomize/namespace.yaml`.
-Default is `cicd`.
-
-### Deploy/Undeploy
+## Deploy/Undeploy
 
 ```bash
 make deploy
@@ -43,6 +29,26 @@ Undeploy:
 ```bash
 make undeploy
 ```
+
+## How to Use CI with Argo Workflows?
+
+This section introduce basic CI usage with built-in `Argo Workflows`.
+
+To know more, please check [official documents](https://argoproj.github.io/argo-workflows/).
+
+### Modify the Configuration
+
+First, specify a host like `argo.cicd.localhost` for the web server of `Argow Workflows`.
+
+Modify it through modify `/spec/rules/0/host` in `./cicd/kustomize/argo-workflows/local/ingress.yaml`.
+
+If you are deploying the cicd in local k8s cluster, you will need to be able to resolve DNS for *.localhost.
+You can check `./local-k8s-cluster/scripts/override_dns.sh` as a tip.
+
+Also specify `namespace` in `./cicd/kustomize/kustomization.yaml` and `./cicd/kustomize/namespace.yaml`.
+Default is `cicd`.
+
+### After Deploy
 
 After deploy, you can check `Argo Workflow Server` Web UI from [http://argo.cicd.localhost](http://argo.cicd.localhost) or the host you specify.
 
@@ -74,9 +80,38 @@ To delete this workflow, simply
 kubectl --namespace cicd delete workflow hello-world-xxx
 ```
 
-## Argo Workflows Catalog
+### Argo Workflows Catalog
 
 For more reusable `Argo Workflow Template`, please check [Argo Workflows Catalog](https://argoproj-labs.github.io/argo-workflows-catalog/).
+
+
+## How to Use CD with Argo CD?
+
+This section introduce basic CI usage with built-in `Argo CD`.
+
+To know more, please check [official documents](https://argo-cd.readthedocs.io/en/stable/).
+
+### Modify the Configuration
+
+First, specify a host like `argocd.cicd.localhost` for the web server of `Argow CD`.
+
+Modify it through modify `/spec/rules/0/host` in `./cicd/kustomize/argo-cd/local/ingress.yaml`.
+
+If you are deploying the cicd in local k8s cluster, you will need to be able to resolve DNS for *.localhost.
+You can check `./local-k8s-cluster/scripts/override_dns.sh` as a tip.
+
+Also specify `namespace` in `./cicd/kustomize/kustomization.yaml` and `./cicd/kustomize/namespace.yaml`.
+Default is `cicd`.
+
+### After Deploy
+
+After deploy, you can check `Argo CD Server` Web UI from [http://argocd.cicd.localhost](http://argocd.cicd.localhost) or the host you specify.
+
+You can check the initial `username` & `password` by following the [official documents](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)
+
+### Deploy a Hello-World Application
+
+Follow the [official documents](https://argo-cd.readthedocs.io/en/stable/getting_started/#6-create-an-application-from-a-git-repository).
 
 ## Advance Configuration
 
