@@ -44,7 +44,9 @@ Undeploy:
 make undeploy
 ```
 
-After deploy, you can check `Argo Server` Web UI from [http://argo.cicd.localhost](http://argo.cicd.localhost) or the host you specify.
+After deploy, you can check `Argo Workflow Server` Web UI from [http://argo.cicd.localhost](http://argo.cicd.localhost) or the host you specify.
+
+You can check `Argo CD` Web UI from [http://argocd.cicd.localhost](http://argocd.cicd.localhost) or the host you specify.
 
 You can check `MinIO` Web UI from [http://minio.cicd.localhost](http://minio.cicd.localhost) or the host you specify.
 
