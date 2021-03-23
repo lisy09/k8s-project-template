@@ -38,7 +38,7 @@ To know more, please check [official documents](https://argoproj.github.io/argo-
 
 ### Modify the Configuration
 
-First, specify a host like `argo.cicd.localhost` for the web server of `Argow Workflows`.
+First, specify a host like `argo.cicd.localhost` or `localhost` for the web server of `Argow Workflows`.
 
 Modify it through modify `/spec/rules/0/host` in `./cicd/kustomize/argo-workflows/local/ingress.yaml`.
 
@@ -50,14 +50,17 @@ Default is `cicd`.
 
 ### After Deploy
 
-After deploy, you can check `Argo Workflow Server` Web UI from [http://argo.cicd.localhost](http://argo.cicd.localhost) or the host you specify.
+After deploy, you can check `Argo Workflow Server` Web UI from [http://localhost/cicd/argo](http://localhost/cicd/argo) or the host you specify.
 
-You can check `Argo CD` Web UI from [http://argocd.cicd.localhost](http://argocd.cicd.localhost) or the host you specify.
+You can check `Argo CD` Web UI from [http://localhost/cicd/argo-cd](http://localhost/cicd/argo-cd) or the host you specify.
 
-You can check `MinIO` Web UI from [http://minio.cicd.localhost](http://minio.cicd.localhost) or the host you specify.
+You can check `MinIO` Web UI from [http://minio.cicd.localhost/](http://minio.cicd.localhost/) or the host you specify.
 
 :::warning
-As current testing, `Argo Server` Web UI may not support Microsoft Edge yet.
+
+Please notice that currently `MinIO` only support serving as root path `/` for the reason to be compatiable with S3.
+So we cannot modify the ingress host for `MinIO` to something like `http://localhost/cicd/minio`
+
 :::
 
 ### Deploy a Hello-World Workflow
@@ -105,7 +108,7 @@ Default is `cicd`.
 
 ### After Deploy
 
-After deploy, you can check `Argo CD Server` Web UI from [http://localhost/argo-cd](http://localhost/argo-cd) or the host you specify.
+After deploy, you can check `Argo CD Server` Web UI. from [http://localhost/cicd/argo-cd](http://localhost/cicd/argo-cd) or the host you specify.
 
 You can check the initial `username` & `password` by following the [official documents](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)
 

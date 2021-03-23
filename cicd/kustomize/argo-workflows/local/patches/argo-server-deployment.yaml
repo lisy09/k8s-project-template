@@ -12,9 +12,7 @@ spec:
             - server
             - --namespaced
             - --secure=false
+            - --basehref=/cicd/argo/
           readinessProbe:
             httpGet:
               scheme: HTTP
-          # env:
-          #   - name: BASE_HREF
-          #     value: /argo/

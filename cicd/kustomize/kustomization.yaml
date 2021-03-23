@@ -7,7 +7,6 @@ bases:
 
 resources:
   - namespace.yaml
-  - ingress.yaml
 
 patches:
   - ./patches/workflow-controller-configmap.yaml
