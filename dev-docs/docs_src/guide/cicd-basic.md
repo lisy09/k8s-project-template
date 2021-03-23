@@ -116,6 +116,17 @@ You can check the initial `username` & `password` by following the [official doc
 
 Follow the [official documents](https://argo-cd.readthedocs.io/en/stable/getting_started/#6-create-an-application-from-a-git-repository).
 
+
+## How to Trigger CI/CD with Argo Events?
+
+This section introduce basic event/trigger usage with built-in `Argo Events`.
+
+To know more, please check [official documents](https://argoproj.github.io/argo-events/).
+
+### Deploy a Hello-World Event Bus/Event Source/Sensor
+
+Please check the [official documents](https://argoproj.github.io/argo-events/quick_start/).
+
 ## Advance Configuration
 
 ### Artifact Repository Using Minio

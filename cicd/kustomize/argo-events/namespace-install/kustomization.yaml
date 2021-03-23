@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../base
+  - rbac
+
+namespace: argo-events
+
+patchesStrategicMerge:
+  - overlays/eventbus-controller-deployment.yaml
+  - overlays/eventsource-controller-deployment.yaml
+  - overlays/sensor-controller-deployment.yaml

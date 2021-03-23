@@ -4,6 +4,7 @@ bases:
   - ./argo-workflows/local
   - ./minio/local
   - ./argo-cd/local
+  - ./argo-events/local
 
 resources:
   - namespace.yaml
