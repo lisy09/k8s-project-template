@@ -12,3 +12,4 @@ spec:
         - --staticassets
         - /shared/app
         - --insecure
+        - --basehref=/argo-cd

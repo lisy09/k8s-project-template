@@ -4,5 +4,8 @@ kind: Kustomization
 bases:
   - ../namespace-install
 
-resources:
-  - ingress.yaml
+# resources:
+#   - ingress.yaml
+
+patches:
+  - ./patches/argocd-server.yaml

@@ -95,7 +95,7 @@ To know more, please check [official documents](https://argo-cd.readthedocs.io/e
 
 First, specify a host like `argocd.cicd.localhost` for the web server of `Argow CD`.
 
-Modify it through modify `/spec/rules/0/host` in `./cicd/kustomize/argo-cd/local/ingress.yaml`.
+Modify it through modify `./cicd/kustomize/ingress.yaml`.
 
 If you are deploying the cicd in local k8s cluster, you will need to be able to resolve DNS for *.localhost.
 You can check `./local-k8s-cluster/scripts/override_dns.sh` as a tip.
@@ -105,7 +105,7 @@ Default is `cicd`.
 
 ### After Deploy
 
-After deploy, you can check `Argo CD Server` Web UI from [http://argocd.cicd.localhost](http://argocd.cicd.localhost) or the host you specify.
+After deploy, you can check `Argo CD Server` Web UI from [http://localhost/argo-cd](http://localhost/argo-cd) or the host you specify.
 
 You can check the initial `username` & `password` by following the [official documents](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)
 

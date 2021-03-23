@@ -14,4 +14,14 @@ spec:
                 name: minio-svc
                 port:
                   number: 9000
+    - host: localhost
+      http:
+        paths:
+          - pathType: Prefix
+            path: /minio
+            backend:
+              service:
+                name: minio-svc
+                port:
+                  number: 9000
       

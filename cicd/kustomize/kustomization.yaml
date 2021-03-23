@@ -1,14 +1,16 @@
 namespace: cicd
 
 bases:
-  - ./namespace.yaml
   - ./argo-workflows/local
   - ./minio/local
   - ./argo-cd/local
 
+resources:
+  - namespace.yaml
+  - ingress.yaml
+
 patches:
   - ./patches/workflow-controller-configmap.yaml
-  - ./patches/argocd-server.yaml
 
 configurations:
   - varReference.yaml
