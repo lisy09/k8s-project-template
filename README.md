@@ -82,6 +82,7 @@ Please check [CONTRIBUTING.md](meta/CONTRIBUTING.md).
 
 ## Directory (WIP)
 
+- `build/`: Building/running entrypoint for the solution
 - `services/`: parent dir for each components/services
 - `local-k8s-cluster`: module to create a local k8s cluster using [kind][kind], which is using Docker container "nodes".
 - `cicd`: ci/cd construction on k8s
