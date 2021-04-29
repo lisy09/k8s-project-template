@@ -1,0 +1,12 @@
+version: "3"
+networks:
+  default:
+    external:
+      name: app
+services: 
+  java-dev-base:
+    image: ${BASE_IMAGE_FULL}
+    container_name: java-dev-base
+    volumes:
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
