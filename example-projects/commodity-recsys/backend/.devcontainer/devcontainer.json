@@ -18,7 +18,8 @@
         "vscjava.vscode-java-dependency",
         "redhat.fabric8-analytics",
         "shengchen.vscode-checkstyle",
-        "dotjoshjohnson.xml"
+        "dotjoshjohnson.xml",
+        "pivotal.vscode-boot-dev-pack"
     ],
     "workspaceFolder": "/workspace",
     "initializeCommand": "bash -c 'if [ \"$(docker network ls -f name=app -q)\" = \"\" ]; then docker network create app; fi'",
